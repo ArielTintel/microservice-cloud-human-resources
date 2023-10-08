@@ -1,0 +1,27 @@
+spring:
+
+  datasource:
+    username: sa
+    url: jdbc:h2:mem:worker_db
+    password:
+    driverClassName: org.h2.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+
+  h2:
+    console:
+      enabled: true
+      path: /h2
+
+  application:
+    name: api-worker
+
+server:
+  port: 8080
