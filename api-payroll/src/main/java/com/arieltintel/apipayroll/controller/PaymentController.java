@@ -17,7 +17,7 @@ public class PaymentController {
 
     private final PaymentService paymentService;
 
-    @GetMapping("/{workerId}/days/{daysWorked}")
+    @GetMapping("/worker/{workerId}/days/{daysWorked}")
     @ResponseStatus(HttpStatus.OK)
     public Payment getPayment(@PathVariable(value = "workerId") Long workerId,
                               @PathVariable(value = "daysWorked")Integer daysWorked) {

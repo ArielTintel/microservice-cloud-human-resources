@@ -5,3 +5,6 @@ spring:
 
 server:
   port: 8081
+
+url:
+  api-worker: http://localhost:8080/v1/workers
