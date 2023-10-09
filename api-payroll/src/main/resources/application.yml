@@ -4,7 +4,8 @@ spring:
     name: api-payroll
 
 server:
-  port: 8081
+  port: 8085
 
-url:
-  api-worker: http://localhost:8080/v1/workers
+api-worker:
+  ribbon:
+    listOfServers: localhost:8080, localhost:8081

@@ -22,6 +22,3 @@ spring:
 
   application:
     name: api-worker
-
-server:
-  port: 8080

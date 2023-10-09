@@ -3,6 +3,9 @@ package com.arieltintel.apiworker.controller;
 import com.arieltintel.apiworker.entities.Worker;
 import com.arieltintel.apiworker.service.WorkerService;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +20,10 @@ import java.util.List;
 @RequiredArgsConstructor
 public class WorkerController {
 
+    private static Logger logger = LoggerFactory.getLogger(WorkerController.class);
+
+    private final Environment environment;
+
     private final WorkerService workerService;
 
     @GetMapping
@@ -28,6 +35,7 @@ public class WorkerController {
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Worker findById(@PathVariable Long id) {
+        logger.info("PORT: " + environment.getProperty("local.server.port"));
         return workerService.findById(id);
     }
 
