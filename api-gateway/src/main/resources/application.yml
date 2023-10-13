@@ -1,1 +1,20 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
 
+zuul:
+  routes:
+    payroll:
+      service-id: api-payroll
+      path: /api-payroll/**
+    worker:
+      path: /api-worker/**
+      service-id: api-worker
+
+server:
+  port: 8765
+
+spring:
+  application:
+    name: api-gateway
