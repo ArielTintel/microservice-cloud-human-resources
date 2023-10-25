@@ -33,7 +33,15 @@ public class WorkerController {
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Worker findById(@PathVariable Long id) {
-        log.info("PORT: " + environment.getProperty("local.server.port"));
+
+        //Simulate an Timeout Exception
+        try {
+            Thread.sleep(3000L);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        log.info("PORT -> -> -> " + environment.getProperty("local.server.port"));
         return workerService.findById(id);
     }
 
