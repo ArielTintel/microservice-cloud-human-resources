@@ -4,6 +4,7 @@ import com.arieltintel.apiworker.entities.Worker;
 import com.arieltintel.apiworker.service.WorkerService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +24,15 @@ public class WorkerController {
     private final Environment environment;
 
     private final WorkerService workerService;
+
+    @Value("${test.config}")
+    private String testConfig;
+
+    @GetMapping("/config")
+    @ResponseStatus(HttpStatus.OK)
+    public String logConfig() {
+        return "############## CONFIG: " + testConfig;
+    }
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
