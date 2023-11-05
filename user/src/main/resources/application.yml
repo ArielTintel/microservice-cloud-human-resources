@@ -20,7 +20,7 @@ spring:
       path: /h2
 
   application:
-    name: user
+    name: api-user
 
 eureka:
   client:

@@ -24,8 +24,11 @@ zuul:
       path: /api-worker/**
       service-id: api-worker
     user:
-      path: /user/**
-      service-id: user
+      path: /api-user/**
+      service-id: api-user
+    oauth:
+      path: /api-oauth/**
+      service-id: api-oauth
 
 server:
   port: 8765
