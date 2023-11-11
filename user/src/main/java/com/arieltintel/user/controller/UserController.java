@@ -26,6 +26,7 @@ public class UserController {
     public User findById(@PathVariable Long id) {
         return userService.findById(id);
     }
+
     @GetMapping("/{email}/email")
     @ResponseStatus(HttpStatus.OK)
     public User findByEmail(@PathVariable String email) {

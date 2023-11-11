@@ -29,6 +29,7 @@ zuul:
     oauth:
       path: /api-oauth/**
       service-id: api-oauth
+      sensitive-headers: Cookie,Set-Cookie
 
 server:
   port: 8765

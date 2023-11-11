@@ -1,6 +1,6 @@
 package com.arieltintel.oauth.clients;
 
-import com.arieltintel.oauth.dto.UserDto;
+import com.arieltintel.oauth.entities.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface UserFeignClient {
 
     @GetMapping("/{email}/email")
-    UserDto findByEmail(@PathVariable String email);
+    User findByEmail(@PathVariable String email);
 
     @GetMapping("/{id}/id")
-    UserDto findById(@PathVariable Long id);
+    User findById(@PathVariable Long id);
 
 }
