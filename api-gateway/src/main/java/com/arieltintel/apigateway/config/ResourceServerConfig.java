@@ -18,7 +18,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
 	private static final String[] PUBLIC_PATH = { "/api-oauth/oauth/token" };
 	private static final String[] OPERATOR_PATH = { "/api-worker/**" };
-	private static final String[] ADMIN_PATH = { "/api-payroll/**", "/api-user/**" };
+	private static final String[] ADMIN_PATH = { "/api-payroll/**", "/api-user/**", "/actuator/**", "/api-worker/actuator/**", "/api-oauth/actuator/**" };
 
 	@Override
 	public void configure(ResourceServerSecurityConfigurer resources) throws Exception {

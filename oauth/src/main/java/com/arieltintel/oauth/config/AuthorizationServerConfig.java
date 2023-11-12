@@ -1,6 +1,7 @@
 package com.arieltintel.oauth.config;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -17,6 +18,12 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 @Configuration
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter { //Configura o MS como um AuthorizationServer do Oauth
 
+    @Value("${oauth.client.name}")
+    private String clientName;
+
+    @Value("${oauth.client.secret}")
+    private String clientSecret;
+
     private final BCryptPasswordEncoder passwordEncoder;
     private final JwtAccessTokenConverter accessTokenConverter;
     private final JwtTokenStore tokenStore;
@@ -31,8 +38,8 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Override
     public void configure(ClientDetailsServiceConfigurer clientDetail) throws Exception {
         clientDetail.inMemory()
-                .withClient("myappname123")
-                .secret(passwordEncoder.encode("myappsecret123"))
+                .withClient(clientName)
+                .secret(passwordEncoder.encode(clientSecret))
                 .scopes("read", "write")
                 .authorizedGrantTypes("password")
                 .accessTokenValiditySeconds(86400); //Expira em 24h
