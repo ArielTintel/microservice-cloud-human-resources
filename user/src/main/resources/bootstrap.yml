@@ -1,13 +1,13 @@
 spring:
   application:
-    name: api-worker
+    name: api-user
 
   cloud:
     config:
       uri: http://localhost:8888
 
   profiles:
-    active: dev
+    active: test
 
 management:
   endpoints:

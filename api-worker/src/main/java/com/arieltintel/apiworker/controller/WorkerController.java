@@ -27,15 +27,6 @@ public class WorkerController {
 
     private final WorkerService workerService;
 
-    @Value("${test.config}")
-    private String testConfig;
-
-    @GetMapping("/config")
-    @ResponseStatus(HttpStatus.OK)
-    public String logConfig() {
-        return "############## CONFIG: " + testConfig;
-    }
-
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<Worker> findAll() {
@@ -47,11 +38,11 @@ public class WorkerController {
     public Worker findById(@PathVariable Long id) {
 
         //Simulate an Timeout Exception
-        try {
+        /*try {
             Thread.sleep(3000L);
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
+        }*/
 
         log.info("PORT -> -> -> " + environment.getProperty("local.server.port"));
         return workerService.findById(id);

@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  worker_db-pg:
+    image: postgres:12.5-alpine
+    container_name: worker_db-pg
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: worker_db
+    ports:
+      - "5432:5432"
+    networks:
+      - cloud-ms-hr
+
+networks:
+  cloud-ms-hr:
+    external: true
