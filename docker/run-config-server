@@ -1,1 +1,1 @@
-docker run -p 8888:8888 --name api-config-server --network cloud-ms-hr -e GITHUB_USER=ArielTintel -e GITHUB_PASS={PASSWORD} api-config-server:v1
+docker run -p 8888:8888 --name api-config-server --network cloud-ms-hr -e GITHUB_USER=ArielTintel -e GITHUB_PASSWORD={PASSWORD} api-config-server:v1
