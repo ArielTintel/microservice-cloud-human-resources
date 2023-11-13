@@ -1,0 +1,1 @@
+docker run -p 8761:8761 --name api-eureka-server --network cloud-ms-hr api-eureka-server:v1
