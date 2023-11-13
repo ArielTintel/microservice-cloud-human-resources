@@ -1,0 +1,3 @@
+docker run -P --network cloud-ms-hr api-oauth:v1
+
+Obs: O (-P) maiusculo, faz o container iniciar com porta aleatoria
