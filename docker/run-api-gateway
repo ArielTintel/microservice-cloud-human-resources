@@ -1,0 +1,1 @@
+docker run -p 8765:8765 --name api-gateway --network cloud-ms-hr api-gateway:v1
